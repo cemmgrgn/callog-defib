@@ -1,0 +1,22 @@
+# CalLog Defib — bağımlılıklar
+#
+# Python 3.12 önerilir (3.10+ çalışır). Windows 10/11.
+#
+#   py -3.12 -m venv .venv
+#   .venv\Scripts\activate
+#   pip install -r requirements.txt
+#   python run.py
+
+PySide6>=6.7,<6.10     # Qt 6, LGPL
+pyqtgraph>=0.13        # Canlı grafik
+pyvisa>=1.14           # Cihaz haberleşmesi
+pyvisa-py>=0.7         # Seri port backend (GPIB için NI-488.2 gerekir)
+pyserial>=3.5          # Seri port tarama
+numpy>=1.26            # Dalga verisi (osiloskop) ve grafik dizileri
+reportlab>=4.0         # PDF sertifika
+openpyxl>=3.1          # Excel dışa aktarım
+python-docx>=1.1       # Word (.docx) çıktı
+rlPyCairo>=0.3         # Grafiğin PNG'ye çevrilmesi (DOCX için)
+
+# Paketleme (geliştirme sırasında gerekmez)
+# pyinstaller>=6.6

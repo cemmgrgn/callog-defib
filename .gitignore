@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# Gerçek laboratuvar verisi — hiçbir zaman paylaşılmaz.
+# Veritabanı, üretilmiş sertifika/rapor PDF'leri, dalga yakalama CSV/PNG'leri,
+# yedekler ve kuruma özgü logo/kılavuz (data/yerel/) burada durur.
+data/
+
+# Ortam değişkenleri / gizli bilgi (şu an kullanılmıyor, önlem amaçlı)
+.env
+.env.*
+*.pem
+*.key
+
+# Paketleme çıktısı
+build/
+dist/
+*.spec
+
+# Editör / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+*.log
+/gitea_init.bat
+*.bat
