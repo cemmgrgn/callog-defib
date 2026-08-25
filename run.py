@@ -48,7 +48,7 @@ def main():
 
     _install_excepthook()
 
-    # Single-instance lock. Not shared with callog-seshizi (separate repo,
+    # Single-instance lock. Not shared with callog_pulse_echo (separate repo,
     # separate install) — if the two are ever pointed at the same database
     # file on purpose, running both at once is still the operator's call to
     # make, not something this lock can coordinate across processes it

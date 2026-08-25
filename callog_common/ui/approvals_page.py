@@ -295,7 +295,7 @@ class ApprovalsPage(QtWidgets.QWidget):
         # Local, optional import: waveform-series certificates are produced
         # only by callog-defib, a separate repo/install. The approval queue
         # is shared (same database, same certificates table), so an approver
-        # running callog-seshizi alone may still see one of these rows in
+        # running callog_pulse_echo alone may still see one of these rows in
         # the queue — just not be able to render its detail, since the
         # defib-specific report code isn't installed here.
         try:
