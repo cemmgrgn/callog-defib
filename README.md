@@ -1,12 +1,9 @@
 # CalLog Defib
 
 Defibrilatör ve harici kalp pili dalga ölçümü, çözümlemesi ve
-sertifikasyonu. Kalibrasyon laboratuvarları için ölçüm kayıt sistemi
-**CalLog**'un iki uygulamasından biri — sertifika/denetim/kullanıcı
-altyapısını [`callog-seshizi`](https://github.com/cemmgrgn/callog-seshizi)
-(ses hızı / kalınlık ölçümü) ile paylaşır, ama tamamen bağımsız bir
-kurulum ve depo: biri olmadan diğeri klonlanabilir, kurulabilir ve
-çalıştırılabilir.
+sertifikasyonu. Kalibrasyon laboratuvarları için bağımsız bir ölçüm
+kayıt sistemi — kurulum ve depo tek başına yeterli, başka bir depoya
+ihtiyaç duymaz.
 
 Geliştiren: **Cem Girgin**  ·  Lisans: [Özel Kullanım Lisansı](LICENSE)
 
@@ -72,25 +69,22 @@ callog_defib/
         waveform_setup.py, waveform_results.py   Dalga yakalama sayfası
 ```
 
-## Bağımlılık: `callog_common/`
+## `callog_common/`
 
 Kullanıcı/rol yönetimi, sertifika üretimi, denetim kaydı, veritabanı
 şeması, yedekleme, tema ve dil, ölçüm oturumu akışı gibi laboratuvar
-altyapısının tamamı `callog_common/` altında — bu, aynı kodun
-[`callog-seshizi`](https://github.com/cemmgrgn/callog-seshizi) deposunda
-da **bir kopyası** olarak duruyor. Bu depoyu `callog-seshizi`'ye bağımlı
-kılmamak için kopyalandı; canlı bir bağlantı değil.
+altyapısının tamamı `callog_common/` altında — bu paylaşılan altyapı,
+kardeş bir uygulamada da kullanılan ayrı bir kopya olarak burada duruyor
+(canlı bir bağlantı/bağımlılık değil).
 
 **Bunun bedeli:** `callog_common`'da ileride bir hata düzeltilirse bu
-depodaki kopya kendiliğinden güncellenmez — elle senkronize edilmeli
-(`callog_common/` dizinini iki depo arasında kopyalayıp buradaki
-`callog_defib`'e özgü hiçbir şeyi ezmediğinden emin olun).
+depodaki kopya kendiliğinden güncellenmez, elle senkronize edilmeli.
 
-`callog_common/ui/approvals_page.py` ve `devices_page.py`, `callog-defib`'e
-özgü rapor kodunu (`seriesreport`, `summaryreport`) **isteğe bağlı** olarak
-içe aktarır (`try/except ImportError`) — bu depoda her zaman bulunur,
-`callog-seshizi`'de bulunmadığında ilgili ekran nazikçe "bu kurulumda
-görüntülenemiyor" der.
+`callog_common/ui/approvals_page.py` ve `devices_page.py`, bu depoya özgü
+rapor kodunu (`seriesreport`, `summaryreport`) **isteğe bağlı** olarak içe
+aktarır (`try/except ImportError`) — bu sayede paylaşılan altyapı, bu
+rapor kodu bulunmayan kurulumlarda da çalışır ve ilgili ekran nazikçe
+"bu kurulumda görüntülenemiyor" der.
 
 ## Test
 
