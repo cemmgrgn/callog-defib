@@ -6,10 +6,17 @@ PostgreSQL later.
 """
 
 import os
+import sys
 import sqlite3
 from datetime import datetime, timezone
 
-APP_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# PyInstaller freezes the source tree into a zipped archive, so __file__
+# no longer sits next to a real "repo root" on disk — sys.executable does,
+# right next to the .exe (see db.py's own note about the PyInstaller bundle).
+if getattr(sys, "frozen", False):
+    APP_DIR = os.path.dirname(os.path.abspath(sys.executable))
+else:
+    APP_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(APP_DIR, "data")
 DB_PATH = os.path.join(DATA_DIR, "callog.db")
 
