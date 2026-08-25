@@ -2,9 +2,9 @@
 
 To add a new device that both apps might use: write a module that inherits
 `base.Driver` and register it below in `REGISTRY`/`SIMULATED_DRIVERS`
-directly. To add a device specific to one app (e.g. `callog_seshizi`'s
+directly. To add a device specific to one app (e.g. `callog_pulse_echo`'s
 DSOX3012T): register it via `register_driver()` from that app's
-`__init__.py` instead — see `callog_seshizi/__init__.py`. Either way the
+`__init__.py` instead — see `callog_pulse_echo/__init__.py`. Either way the
 rest of the application (discovery, `drivers.create()`, `is_simulated()`)
 stays unchanged, since both paths feed the same registry.
 """

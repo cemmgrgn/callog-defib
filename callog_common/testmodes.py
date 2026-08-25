@@ -16,7 +16,7 @@ This module only defines the framework (`TestMode`, the registry, and the
 generic scope-display math below) — it knows nothing about defibrillators
 or ultrasonic velocity. Each app registers its own modes at import time via
 `register_mode()`: see `callog_defib/defib_modes.py` and
-`callog_seshizi/seshizi_modes.py`. Keeping the registry here instead of in
+`callog_pulse_echo/pulse_echo_modes.py`. Keeping the registry here instead of in
 either app is what lets both apps record captures with the same
 `test_mode` key/lookup mechanism and share `MIN_TIME_PER_DIV_S` and the
 generic warnings below.

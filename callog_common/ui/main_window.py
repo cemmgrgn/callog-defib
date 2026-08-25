@@ -1,12 +1,12 @@
 """Shared main window: left navigation rail + role-pruned menu.
 
-This is the base both CalLog apps (`callog_defib`, `callog_seshizi`) build
+This is the base both CalLog apps (`callog_defib`, `callog_pulse_echo`) build
 their own `MainWindow` on top of. Everything that doesn't depend on which
 app is running lives here: home screen, devices, sessions, measurement,
 approvals, history, admin, theme/font/language, backup, search, shortcuts.
 
 The one page that differs between apps (defib's waveform capture vs.
-seshizi's velocity page) is added through a small set of override points
+pulse_echo's velocity page) is added through a small set of override points
 instead of being imported here — see `_build_extra_page`,
 `_extra_page_meta`, `_extra_page_available`, `_refresh_extra_appearance`,
 `_shutdown_extra`, `_operator_guides`. A subclass overrides only what it
@@ -140,7 +140,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     # --- extension points for app-specific subclasses -------------------
     # Every CalLog app shares this window and adds exactly one extra page
-    # (waveform capture for callog_defib, velocity for callog_seshizi).
+    # (waveform capture for callog_defib, velocity for callog_pulse_echo).
     # The base class knows nothing about either; a subclass overrides only
     # the hooks below. Defaults are all no-ops so a window with no extra
     # page (e.g. a role without the needed permission) still works unmodified.
@@ -817,7 +817,7 @@ def has_active_scope():
     """Whether an active instrument in the inventory can capture waveforms.
 
     Shared by both apps' `_extra_page_available()`: a waveform-capture page
-    (defib) and a velocity page (seshizi) both need *some* oscilloscope-class
+    (defib) and a velocity page (pulse_echo) both need *some* oscilloscope-class
     driver, just applied to a different measurement. If none is active, the
     page isn't added at all — an unusable page shouldn't take up space in
     the rail. It becomes visible once the app is restarted after a new
