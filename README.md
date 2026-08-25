@@ -7,10 +7,6 @@ ihtiyaç duymaz.
 
 Geliştiren: **Cem Girgin**  ·  Lisans: [Özel Kullanım Lisansı](LICENSE)
 
-Kurum adı, birim adı ve logo kaynak kodda gömülü değildir; kurulumdan
-sonra Yönetim → Laboratuvar sayfasından girilir ve veritabanında saklanır
-(bkz. [`callog_common/branding.py`](callog_common/branding.py)). Bu depo
-hiçbir kuruma özgü bilgi içermez.
 
 Uygulamayı ekran görüntüleriyle adım adım anlatan, tamamen jenerik bir
 kullanım kılavuzu için: [`docs/kullanim-kilavuzu.pdf`](docs/kullanim-kilavuzu.pdf).
