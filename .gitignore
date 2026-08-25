@@ -21,6 +21,8 @@ data/
 build/
 dist/
 *.spec
+!CalLogDefib.spec
+!CalLogDefib-onedir.spec
 
 # Editör / OS
 .vscode/
