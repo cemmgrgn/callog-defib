@@ -1851,7 +1851,6 @@ def main():
 
     # --- Shock report (PDF) --------------------------------------------
     print("\n14c. Sok raporu")
-    from callog_defib import shockreport
 
     page.table.selectRow(0)
     check("yakalama secildi", page._selected_capture() is not None)

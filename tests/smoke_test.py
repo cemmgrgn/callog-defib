@@ -1,10 +1,12 @@
-"""Smoke test that needs no Qt or real hardware.
+"""Smoke test that needs no real hardware.
 
 Run:  python tests/smoke_test.py
 
-Uses only the standard library; works even without PyQt/pyvisa/reportlab
-installed. Verifies the core logic (database, immutability, hash chain,
-statistics, simulation driver, certificate calculation).
+Mostly standard library and doesn't open a Qt window, but PySide6 must be
+installed: `callog_common.ui.waveform_common` (imported for a couple of
+pure-logic helpers reused by both the UI and this test) pulls in `qt.py`
+at module load time. Verifies the core logic (database, immutability, hash
+chain, statistics, simulation driver, certificate calculation).
 """
 
 import math

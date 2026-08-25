@@ -95,9 +95,19 @@ görüntülenemiyor" der.
 ## Test
 
 ```bash
-python tests/smoke_test.py       # Qt/pyvisa/reportlab gerektirmez
-python tests/gui_smoke_test.py   # ekransız çalışır
+python tests/smoke_test.py       # pyvisa/reportlab gerektirmez, ama PySide6 kurulu olmalı
+python tests/gui_smoke_test.py   # ekransız (offscreen) çalışır
 ```
+
+Windows'ta ekransız Qt platformu bazen sistem fontlarını bulamaz; bu durumda
+her iki testten önce şunu ayarlayın:
+
+```bash
+set QT_QPA_FONTDIR=C:\Windows\Fonts
+```
+
+(`gui_smoke_test.py` `QT_QPA_PLATFORM=offscreen`'i kendi içinde ayarlar,
+elle set etmeye gerek yok.)
 
 `smoke_test.py`: 300/300. `gui_smoke_test.py`: 479/480 — kalan tek başarısızlık
 (`kararlilik seridi en genis satir degil`), bu depoda hiç değiştirilmemiş
